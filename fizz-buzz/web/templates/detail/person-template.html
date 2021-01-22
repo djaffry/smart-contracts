@@ -1,0 +1,160 @@
+<div class="card" style="width: 30rem;" data-address="{{ person.address }}">
+    <div class="card-body">
+        <h5 class="card-title"><img src="img/{{ role }}.png" height="32px" width="32px" alt="{{ role }}"><span title="{{ person.address }}">{{ person.address }}</span></h5>
+        <p class="card-text"><span class="eth-balance-{{ person.address }}">{{ person.ether }}</span> Ξ<br />
+            <span class="beertoken-balance-{{ person.address }}">{{ person.beertokens }}</span> <img src="img/beer.png" height="32px" width="32px" /><br />
+            <span class="pending-beertoken-balance-{{ person.address }}">{{ person.pendingBeertokens }}</span> pending <img src="img/beer.png" height="32px" width="32px" /></p>
+
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 50px;"><img src="img/beer.png" height="23px" width="23px" /></span>
+                    </div>
+                    <input type="number" class="form-control" id="buy-beer-quantity" value="0" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="buy-beer-submit">Buy Beer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 50px;">Ξ</span>
+                    </div>
+                    <input type="number" class="form-control" id="buy-beertoken-quantity" value="0" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="buy-beertoken-submit">Buy Tokens</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 50px;"><img src="img/beer.png" height="23px" width="23px" /></span>
+                    </div>
+                    <input type="number" class="form-control" id="cancel-beer-quantity" value="0" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-warning" id="cancel-beer-submit">Cancel Beer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="row">
+            <div class="col-11">
+                <h5>Fizz Buzz</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="reload-game">Reload Game Stats</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="reloadGame">
+            <div class="col-11">
+                {{#if game.gameOther}}<h6>Other Player: {{game.gameOther}}</h6>{{/if}}
+                {{#if game.gameCommitment}}<h6>Commitment: {{game.gameCommitment}}</h6>
+                {{else}}<h6>No Game</h6>{{/if}}
+                {{#if game.gameNumber1}}<h6>FIZZ: {{game.gameNumber1}}</h6>{{/if}}
+                {{#if game.gameNumber2}}<h6>BUZZ: {{game.gameNumber2}}</h6>{{/if}}
+                {{#if game.gameHaveIPayed}}<h6>I Payed</h6>{{/if}}
+                {{#if game.gameHasOtherPayed}}<h6>Other's Payed</h6>{{/if}}
+                {{#if game.gameTurn}}<h6>Turn: #{{game.gameTurn}}</h6>{{/if}}
+                {{#if game.gameMyTurn}}<h5>My Turn!</h5>{{/if}}
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="new-game-other" value="0x" />
+                    <input type="number" class="form-control" id="new-game-commitment" value="1" />
+                    <input type="number" class="form-control" id="new-game-number1" value="3" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="new-game-submit">New Fizz Buzz Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 50px;"><img src="img/beer.png" height="23px" width="23px" /></span>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-warning" id="pay-game-submit">Pay Commitment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" id="accept-game-number2" value="5" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="accept-game-submit">Accept Fizz Buzz Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-danger" id="reject-game-submit">Reject Fizz Buzz Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="move-game-text" value="" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="move-game-submit">Make Move</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 50px;">Ξ</span>
+                    </div>
+                    <input type="number" class="form-control" id="donate-game-amount" value="1" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-warning" id="donate-game-submit">Donate to FizzBuzz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

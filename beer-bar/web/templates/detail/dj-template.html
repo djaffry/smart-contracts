@@ -1,0 +1,37 @@
+<div class="card" style="width: 30rem;" data-address="{{ person.address }}">
+    <div class="card-body">
+        <h5 class="card-title"><img src="img/{{ role }}.png" height="32px" width="32px" alt="{{ role }}"><span title="{{ person.address }}">{{ person.address }}</span></h5>
+        <p class="card-text"><span class="eth-balance-{{ person.address }}">{{ person.ether }}</span> Ξ<br />
+            <span class="beertoken-balance-{{ person.address }}">{{ person.beertokens }}</span> <img src="img/beer.png" height="32px" width="32px" /><br />
+            <span class="pending-beertoken-balance-{{ person.address }}">{{ person.pendingBeertokens }}</span> pending <img src="img/beer.png" height="32px" width="32px" /></p>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" id="open-votings-submit">Open Votings</button>
+                <button type="submit" class="btn btn-warning" id="close-votings-submit">Close Votings</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" id="votings-status-submit">Current Voting Status</button>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" id="choose-song-submit">Choose Song</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="input-group mb-3">
+                    <input class="form-control" id="song-title" value="Song Title"/>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="play-song-submit">Play Song</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
